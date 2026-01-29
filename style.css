@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #111;
+  padding: 40px 0;
+}
+
+/* Janela */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Esteira */
+.carousel-track {
+  display: flex;
+  will-change: transform;
+}
+
+/* Item */
+.carousel-item {
+  flex: 0 0 auto;
+  width: 220px; /* ajuste conforme quiser */
+}
+
+/* Camada interna para zoom */
+.item-inner {
+    position: relative;
+  transition: transform 0.3s ease;
+}
+
+.item-inner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(86, 255, 80, 0.35); /* cor roxa suave (exemplo) */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+
+/* Imagem */
+.carousel-item img {
+  width: 100%;
+  display: block;
+}
+
+/* Hover */
+.carousel-item:hover .item-inner {
+  transform: scale(1.12);
+  z-index: 10;
+}
+
+.carousel-item:hover .item-inner::after {
+  opacity: 1;
+}
+
